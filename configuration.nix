@@ -1,27 +1,23 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
     ./hardware-configuration.nix
+    ./system-level_modules/core/system-control.nix
+    ./system.nix
+    ./system-level_modules/services/audio/systemAudio.nix
+    ./system-level_modules/services/media/media.nix
+    ./system-level_modules/programs/shells/fish.nix
     ./system-level_modules/services/tailscale.nix
+    ./system-level_modules/services/git/git.nix
     ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  # Fish
-  environment.shells = with pkgs; [ fish ];
-  users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
+   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -62,17 +58,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  # Enable security.rtkit.
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -87,17 +74,12 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-     git
-     foot
      librewolf
      wget
    ];

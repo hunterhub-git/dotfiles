@@ -1,25 +1,31 @@
 { config, pkgs, ... }: {
   imports = [
-#home-manager_modules
+#.dotfiles
+  #control-panel
+   ./user.nix
+  #core
+    #user-control
+    ./user-level_modules/core/user-control.nix
   #services
     #media
-    ./home-manager_modules/services/media/spotify.nix
+    ./user-level_modules/services/media/spotify.nix
   #programs
     #CLI
-      #shells
-      ./home-manager_modules/programs/CLI/shells/fish.nix
       #editors
-      ./home-manager_modules/programs/CLI/editors/vim.nix
+      # ./user-level_modules/programs/CLI/editors/vim.nix
+      ./user-level_modules/programs/CLI/editors/neovim.nix
       #terminals
-      ./home-manager_modules/programs/CLI/terminals/foot.nix
-      #rices
-      ./home-manager_modules/programs/CLI/rices/fastfetch.nix
-      ./home-manager_modules/programs/CLI/rices/starship.nix
+      ./user-level_modules/programs/CLI/terminals/foot.nix
+      #enhancements
+      ./user-level_modules/programs/CLI/enhancements/fastfetch.nix
+      ./user-level_modules/programs/CLI/enhancements/starship.nix
       #tools
-      ./home-manager_modules/programs/CLI/tools/eza.nix
-      ./home-manager_modules/programs/CLI/tools/bat.nix
-      ./home-manager_modules/programs/CLI/tools/zoxide.nix
-      ./home-manager_modules/programs/CLI/tools/fzf.nix
+      ./user-level_modules/programs/CLI/tools/eza.nix
+      ./user-level_modules/programs/CLI/tools/bat.nix
+      ./user-level_modules/programs/CLI/tools/zoxide.nix
+      ./user-level_modules/programs/CLI/tools/fzf.nix
+      #developmentTools 
+      ./user-level_modules/programs/CLI/developmentTools/tmux.nix
 
     ];
 

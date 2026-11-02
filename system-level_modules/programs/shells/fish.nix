@@ -1,9 +1,12 @@
-{ pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
+  
+  config = lib.mkIf (config.mySystemControlPanel.defaultShell == "fish") {
+
   programs.fish = {
     enable = true;
 
 # 1. Shell Abbreviations
-  shellAbbrs = {
+shellAbbrs = {
 
 # Miscellaneous
 r = "sudo nixos-rebuild switch --flake";
@@ -46,6 +49,9 @@ ls = "ls --color";
 # 3. Shell Initiate
   interactiveShellInit = ''
     fastfetch
+    if status is-interactive; and not set -q TMUX;and type -q tmux
+    exec tmux
     '';
+    };
   };
 }

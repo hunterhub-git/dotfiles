@@ -1,4 +1,7 @@
-{ vim, ... }: {
+{ config, lib, pkgs, ... }: {
+
+  config = lib.mkIf (config.myUserControlPanel.defaultEditor == "vim" ) {
+
   programs.vim = {
     enable = true;
 
@@ -11,6 +14,7 @@
    relativenumber = true;
    shiftwidth = 4;
    smartcase = true;
+      };
     };
   };
 }

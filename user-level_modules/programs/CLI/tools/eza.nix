@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
+
+  config = lib.mkIf ( config.myUserControlPanel.terminalTools == true) {
+
   programs.eza = {
     enable = true;
 #Whether to enable eza for fish
@@ -11,9 +14,7 @@ git = true;
     extraOptions = [
       "--group-directories-first"
       "--header"
-    ];
+      ];
+    };
   };
-
-# Eza theme
-
 }
