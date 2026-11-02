@@ -41,7 +41,7 @@ fdtf = "fd -t f";
 };
 
 # 2. Shell Aliases
-  shellAliases = {
+shellAliases = {
 
 ls = "ls --color";
 };
@@ -49,8 +49,6 @@ ls = "ls --color";
 # 3. Shell Initiate
   interactiveShellInit = ''
     fastfetch
-    if status is-interactive; and not set -q TMUX;and type -q tmux
-    exec tmux
     '';
     };
   };

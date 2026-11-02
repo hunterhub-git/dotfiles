@@ -26,8 +26,18 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
+  
+  # Enable remote desktop connection
+  services.xserver.enable = true;
+  services.gnome.gnome-remote-desktop.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    };
+    systemd.services.gnome-remote-desktop = {
+    wantedBy = [ "graphical.target"];
+    };
+# Set your time zone.
   time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
@@ -98,7 +108,7 @@
    services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+   networking.firewall.allowedTCPPorts = [ 3389 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
