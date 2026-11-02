@@ -18,7 +18,11 @@
     };
     developmentTools = lib.mkOption {
       type = lib.types.bool;
-      description = "Enable developement tools for the selected terminal.";
+      description = "Enable developement tools for the selected user.";
+    };
+    studentTools = lib.mkOption {
+      type = lib.types.bool;
+      description = "Enable student tools for the selected user.";
     };
 };
 

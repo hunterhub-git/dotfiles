@@ -25,6 +25,9 @@
   # Enable development tools?    
     developmentTools = true;
   #--------------------------------#
+  # Enable student tools?
+    studentTools = true;
+  #--------------------------------#
   # Enable cybersecurity tools?
 
   #--------------------------------#

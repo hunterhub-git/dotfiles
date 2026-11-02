@@ -10,6 +10,8 @@
     #media
     ./user-level_modules/services/media/spotify.nix
   #programs
+    #filesystem
+      ./user-level_modules/programs/filesystem/obsidian.nix
     #CLI
       #editors
       # ./user-level_modules/programs/CLI/editors/vim.nix
@@ -33,6 +35,7 @@
   # manage.
   home.username = "hunter";
   home.homeDirectory = "/home/hunter";
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
