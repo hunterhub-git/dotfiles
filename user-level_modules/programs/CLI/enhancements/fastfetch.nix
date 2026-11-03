@@ -4,80 +4,34 @@
       enable = true;
       settings = {
         logo = {
-          # Automatically uses the default built-in NixOS graphic logo
-          type = "auto";
+          type = "none";
         };
 
         display = {
           color = {
-            keys = "blue";
-            title = "bright_yellow";
+            keys = "blue";          # Will map to soft #70a0a0
+            title = "bright_red";     # Will map to soft #e07070
           };
-          separator = " 🐧 ";
+          separator = " ─── ";
         };
 
         modules = [
           "title"
           "separator"
-          {
-            type = "os";
-            key = "Operation";
-          }
-          {
-            type = "host";
-            key = "HQ Unit";
-          }
-          {
-            type = "kernel";
-            key = "Core Base";
-          }
-          {
-            type = "uptime";
-            key = "Mission Time";
-          }
-          {
-            type = "packages";
-            key = "Arsenal";
-          }
-          {
-            type = "shell";
-            key = "Comms";
-          }
-          {
-            type = "terminal";
-            key = "Terminal";
-          }
-          {
-            type = "cpu";
-            key = "Processor";
-          }
-          {
-            type = "gpu";
-            key = "Visual Intel";
-          }
-          {
-            type = "memory";
-            key = "RAM Status";
-          }
-          {
-            type = "swap";
-            key = "Backup Vault";
-          }
-          {
-            type = "disk";
-            key = "Storage Vault";
-          }
-          {
-            type = "localip";
-            key = "Network Frequency";
-          }
-          {
-            type = "colors";
-            symbol = "circle";
-          }
+          { type = "os"; key = "[ OS ]"; }
+          { type = "host"; key = "[ HOST ]"; }
+          { type = "kernel"; key = "[ KERNEL ]"; }
+          { type = "uptime"; key = "[ UPTIME ]"; }
+          { type = "packages"; key = "[ PKGS ]"; }
+          { type = "shell"; key = "[ SHELL ]"; }
+          { type = "terminal"; key = "[ TERM ]"; }
+          { type = "cpu"; key = "[ CPU ]"; }
+          { type = "gpu"; key = "[ GPU ]"; }
+          { type = "memory"; key = "[ RAM ]"; }
+          { type = "disk"; key = "[ DISK ]"; }
+          "colors"
         ];
       };
     };
   };
 }
-
