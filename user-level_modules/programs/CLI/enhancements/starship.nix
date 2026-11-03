@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+}{ config, lib, pkgs, ... }: {
   config = lib.mkIf (config.myUserControlPanel.terminalEnhancements == true) {
     programs.fish.enable = true;
 
@@ -10,63 +10,49 @@
         add_newline = true;
         scan_timeout = 10;
 
-        # Soft Habamax CRT Palette
-        palettes.crt-rgb = {
-          crt_red = "#d75f5f";
-          crt_green = "#70b070";
-          crt_blue = "#70a0a0";
-          line_dim = "#4e4e4e";
-          text_bright = "#d0d0d0";
-        };
-
-        palette = "crt-rgb";
-
-        # Balanced retro linework layout
+        # Modern Rounded Powerline Block Layout
         format = lib.concatStrings [
-          "[╭─](crt_blue) "
+          "[](#7FBBB3)"
           "$os"
-          " [│](line_dim) "
-          "$username"
-          " [│](line_dim) "
+          "[](bg:#434F55 fg:#7FBBB3)"
           "$directory"
-          " [│](line_dim) "
+          "[](bg:#3A464C fg:#434F55)"
           "$git_branch"
           "$git_status"
-          "\n"
-          "[╰─❯](crt_green bold) "
+          "[](fg:#3A464C) "
+          "\n$character"
         ];
 
         os = {
           disabled = false;
-          style = "crt_blue bold";
+          style = "bg:#7FBBB3 fg:#333C43 bold";
           symbols = {
-            NixOS = "NIX";
-            Linux = "LINUX";
+            NixOS = " ❄️ NIX ";
+            Linux = " 🐧 LINUX ";
           };
         };
 
-        username = {
-          show_always = true;
-          style_user = "crt_red bold";
-          format = "[$user]($style)";
-        };
-
         directory = {
-          style = "text_bright";
-          format = "[$path]($style)";
+          style = "bg:#434F55 fg:#D3C6AA";
+          format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
         };
 
         git_branch = {
-          style = "crt_green";
-          format = "[$symbol$branch]($style)";
-          symbol = "⎇ ";
+          style = "bg:#3A464C fg:#A7C080 bold";
+          format = "[ $symbol$branch ]($style)";
+          symbol = " ⎇ ";
         };
 
         git_status = {
-          style = "crt_green";
-          format = "[$all_status$ahead_behind]($style)";
+          style = "bg:#3A464C fg:#DBBC7F";
+          format = "[ $all_status$ahead_behind ]($style)";
+        };
+
+        character = {
+          success_symbol = "[❯](bold #A7C080)";
+          error_symbol = "[❯](bold #E67E80)";
         };
       };
     };

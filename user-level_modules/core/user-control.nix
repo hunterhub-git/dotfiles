@@ -16,11 +16,11 @@
       type = lib.types.bool;
       description = "Enables terminal tools for the selected terminal.";
     };
-    developmentTools = lib.mkOption {
+    developmentMode = lib.mkOption {
       type = lib.types.bool;
       description = "Enable developement tools for the selected user.";
     };
-    studentTools = lib.mkOption {
+    studentMode = lib.mkOption {
       type = lib.types.bool;
       description = "Enable student tools for the selected user.";
     };

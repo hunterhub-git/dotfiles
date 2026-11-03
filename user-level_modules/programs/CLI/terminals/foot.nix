@@ -13,30 +13,27 @@
         };
 
         colors-dark = {
-          # Exact match to Neovim's guibg=#121212
-          background = "121212";
-          foreground = "d0d0d0";
+  background = "272E33"; # Soft Everforest bg0
+  foreground = "D3C6AA"; # fg
 
-          # Soft Muted ANSI Colors (Habamax Palette)
-          regular0 = "1f1f1f"; # Dark Neutral / Selection
-          regular1 = "d75f5f"; # Soft Habamax Red
-          regular2 = "70b070"; # Soft Habamax Green
-          regular3 = "af875f"; # Soft Warm Amber / Tan
-          regular4 = "70a0a0"; # Soft CRT Cyan-Blue
-          regular5 = "af87af"; # Soft Lavender Magenta
-          regular6 = "5f8787"; # Muted Slate Cyan
-          regular7 = "d0d0d0"; # Soft Off-White
+  regular0 = "30383C"; # Soft dark neutral
+  regular1 = "E67E80"; # Red
+  regular2 = "A7C080"; # Green
+  regular3 = "DBBC7F"; # Yellow
+  regular4 = "7FBBB3"; # Blue
+  regular5 = "D699B6"; # Purple
+  regular6 = "83C092"; # Aqua
+  regular7 = "D3C6AA"; # White / FG
 
-          # Bright ANSI Variants
-          bright0  = "4e4e4e"; # Muted Gray
-          bright1  = "e07070"; # Bright Soft Red
-          bright2  = "80c080"; # Bright Soft Green
-          bright3  = "c0a070"; # Bright Muted Gold
-          bright4  = "80b5b5"; # Bright Soft Blue
-          bright5  = "c095c0"; # Bright Soft Lavender
-          bright6  = "709f9f"; # Bright Soft Cyan
-          bright7  = "ffffff"; # Bright Pure White
-        };
+  bright0  = "7A8478"; # grey0
+  bright1  = "E67E80";
+  bright2  = "A7C080";
+  bright3  = "DBBC7F";
+  bright4  = "7FBBB3";
+  bright5  = "D699B6";
+  bright6  = "83C092";
+  bright7  = "FDF6E3";
+};
       };
     };
   };

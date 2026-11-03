@@ -4,31 +4,31 @@
       enable = true;
       settings = {
         logo = {
-          type = "none";
+          type = "nixos";
         };
 
         display = {
+          separator = " ──> ";
           color = {
-            keys = "blue";          # Will map to soft #70a0a0
-            title = "bright_red";     # Will map to soft #e07070
+            keys = "blue";
+            title = "green";
           };
-          separator = " ─── ";
         };
 
         modules = [
           "title"
           "separator"
-          { type = "os"; key = "[ OS ]"; }
-          { type = "host"; key = "[ HOST ]"; }
-          { type = "kernel"; key = "[ KERNEL ]"; }
-          { type = "uptime"; key = "[ UPTIME ]"; }
-          { type = "packages"; key = "[ PKGS ]"; }
-          { type = "shell"; key = "[ SHELL ]"; }
-          { type = "terminal"; key = "[ TERM ]"; }
-          { type = "cpu"; key = "[ CPU ]"; }
-          { type = "gpu"; key = "[ GPU ]"; }
-          { type = "memory"; key = "[ RAM ]"; }
-          { type = "disk"; key = "[ DISK ]"; }
+          { type = "os"; key = "OS"; }
+          { type = "kernel"; key = "Kernel"; }
+          { type = "uptime"; key = "Uptime"; }
+          { type = "packages"; key = "Packages"; }
+          { type = "shell"; key = "Shell"; }
+          { type = "terminal"; key = "Terminal"; }
+          { type = "cpu"; key = "CPU"; }
+          { type = "gpu"; key = "GPU"; }
+          { type = "memory"; key = "Memory"; }
+          { type = "disk"; key = "Disk"; }
+          "break"
           "colors"
         ];
       };

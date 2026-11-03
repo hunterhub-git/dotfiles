@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  config = lib.mkIf (config.myUserControlPanel.studentTools == true) {
+  config = lib.mkIf (config.myUserControlPanel.studentMode == true) {
   
   programs.obsidian = {
     enable = true;

@@ -4,6 +4,7 @@
       enable = true;
 
       plugins = with pkgs.vimPlugins; [
+        everforest
         telescope-nvim
         nvim-treesitter.withAllGrammars
         lualine-nvim
@@ -27,20 +28,15 @@
         vim.opt.expandtab = true
         vim.opt.termguicolors = true
 
-        -- CRT RGB Phosphor Theme & Highlights
-        vim.cmd([[
-          colorscheme habamax
-          highlight Normal guibg=#121212 guifg=#d0d0d0
-          highlight StatusLine guibg=#1f1f1f guifg=#00ff66
-          highlight SignColumn guibg=#121212
-          highlight TelescopeBorder guifg=#00ccff
-          highlight NvimTreeNormal guibg=#121212
-        ]])
+        -- Everforest Theme Setup
+        vim.g.everforest_background = 'hard'
+        vim.g.everforest_enable_italic = 1
+        vim.cmd([[colorscheme everforest]])
 
         -- Initialize helper plugins
         require("nvim-autopairs").setup {}
         require("lualine").setup {
-          options = { theme = 'auto' }
+          options = { theme = 'everforest' }
         }
         
         require("gitsigns").setup {
@@ -57,7 +53,7 @@
         require("symbols-outline").setup {}
         require("which-key").setup {}
 
-        -- 2. Plugin Keybindings with Leader (<space>)
+        -- 2. Explicit Plugin Keybindings with Leader (<space>)
         vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { silent = true })
         vim.keymap.set('n', '<leader>s', '<cmd>SymbolsOutline<CR>', { silent = true })
         vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<CR>', { silent = true })

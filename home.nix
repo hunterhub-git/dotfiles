@@ -6,6 +6,9 @@
   #core
     #user-control
     ./user-level_modules/core/user-control.nix
+  #modes
+    #developmentMode
+    ./user-level_modules/modes/developmentMode/tmux.nix
   #services
     #media
     ./user-level_modules/services/media/spotify.nix
@@ -26,8 +29,6 @@
       ./user-level_modules/programs/CLI/tools/bat.nix
       ./user-level_modules/programs/CLI/tools/zoxide.nix
       ./user-level_modules/programs/CLI/tools/fzf.nix
-      #developmentTools 
-      ./user-level_modules/programs/CLI/developmentTools/tmux.nix
 
     ];
 

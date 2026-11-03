@@ -7,7 +7,6 @@
 
 # User control options
 
-  #--------------------------------#
 # Command line interface options
   #--------------------------------#
   # Default Terminal to use
@@ -22,14 +21,16 @@
   # Enable default shell tools?
     terminalTools = true;
   #--------------------------------#
-  # Enable development tools?    
-    developmentTools = true;
-  #--------------------------------#
-  # Enable student tools?
-    studentTools = true;
-  #--------------------------------#
-  # Enable cybersecurity tools?
 
+# User Modes
+  # Enter Development Mode?    
+    developmentMode = true;
+  #--------------------------------#
+  # Enter Student Mode?
+    studentMode = true;
+  #--------------------------------#
+  # Enter CyberOpsMode?
+    # cyberOpsMode = false;
   #--------------------------------#
 # Browser options
   };
