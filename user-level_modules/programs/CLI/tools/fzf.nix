@@ -4,21 +4,25 @@
       enable = true;
       enableFishIntegration = true;
 
-      # Everforest Soft Palette FZF Integration
-      colors = {
-        "bg"      = "#272E33"; # Soft dark background
-        "bg+"     = "#30383C"; # Selected background row
-        "fg"      = "#D3C6AA"; # Main text (fg)
-        "fg+"     = "#FDF6E3"; # Selected text
-        "hl"      = "#7FBBB3"; # Highlighted substring (blue)
-        "hl+"     = "#83C092"; # Selected highlighted substring (aqua)
-        "prompt"  = "#A7C080"; # Prompt symbol (green)
-        "pointer" = "#E67E80"; # Current line pointer (red)
-        "marker"  = "#DBBC7F"; # Multi-select marker (yellow)
-        "spinner" = "#D699B6"; # Streaming indicator (purple)
-        "header"  = "#7A8478"; # Header text (grey0)
-        "info"    = "#7FBBB3"; # Match counter info (blue)
-      };
+      # Force Everforest Soft palette and clean modern layout across all fzf / zi calls
+      defaultOptions = [
+        "--height 40%"
+        "--layout=reverse"
+        "--border"
+        "--color=bg+:#30383C"
+        "--color=bg:#272E33"
+        "--color=spinner:#D699B6"
+        "--color=hl:#7FBBB3"
+        "--color=fg:#D3C6AA"
+        "--color=header:#7A8478"
+        "--color=info:#7FBBB3"
+        "--color=pointer:#E67E80"
+        "--color=marker:#DBBC7F"
+        "--color=prompt:#A7C080"
+        "--color=hl+:#83C092"
+        "--color=fg+:#FDF6E3"
+        "--color=border:#30383C"
+      ];
     };
   };
 }
