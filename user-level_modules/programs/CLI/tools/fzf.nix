@@ -1,28 +1,24 @@
 { config, lib, pkgs, ... }: {
-  config = lib.mkIf (config.myUserControlPanel.terminalTools == true) {
+  config = lib.mkIf (config.myUserControlPanel.terminalEnhancements == true) {
     programs.fzf = {
       enable = true;
       enableFishIntegration = true;
 
-      # Default command using ripgrep if available for fast file search
-      defaultCommand = "rg --files --hidden --follow --glob '!.git/*'";
-
-      # Default options
-      defaultOptions = [
-        "--height 50%"
-        "--border rounded"
-        "--layout reverse"
-        "--info inline"
-        "--prompt='🔍 '"
-        "--pointer='▶'"
-        "--marker='✓'"
-        # Custom color override
-        "--color=bg:#1d2021,bg+:#282828,spinner:#00ff66,hl:#00ccff"
-        "--color=fg:#d0d0d0,header:#ffcc00,info:#ff4444,pointer:#00ff66"
-        "--color=marker:#00ff66,prompt:#00ccff,hl+:#00ccff"
-        # Optional: live file preview using bat if you want file contents shown on the side
-        "--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-      ];
+      # Everforest Soft Palette FZF Integration
+      colors = {
+        "bg"      = "#272E33"; # Soft dark background
+        "bg+"     = "#30383C"; # Selected background row
+        "fg"      = "#D3C6AA"; # Main text (fg)
+        "fg+"     = "#FDF6E3"; # Selected text
+        "hl"      = "#7FBBB3"; # Highlighted substring (blue)
+        "hl+"     = "#83C092"; # Selected highlighted substring (aqua)
+        "prompt"  = "#A7C080"; # Prompt symbol (green)
+        "pointer" = "#E67E80"; # Current line pointer (red)
+        "marker"  = "#DBBC7F"; # Multi-select marker (yellow)
+        "spinner" = "#D699B6"; # Streaming indicator (purple)
+        "header"  = "#7A8478"; # Header text (grey0)
+        "info"    = "#7FBBB3"; # Match counter info (blue)
+      };
     };
   };
 }
