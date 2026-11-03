@@ -4,7 +4,8 @@
       enable = true;
       settings = {
         logo = {
-          type = "nixos";
+          type = "builtin";
+          source = "nixos";
         };
 
         display = {
