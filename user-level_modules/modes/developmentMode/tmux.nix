@@ -10,10 +10,10 @@
       historyLimit = 10000;
 
       extraConfig = ''
-        # Set Leader key to comma (,)
+        # --- Explicit Spacebar Leader Key Setup (Ctrl+Space) ---
         unbind C-b
-        set-option -g prefix ,
-        bind-key , send-prefix
+        set-option -g prefix C-Space
+        bind-key C-Space send-prefix
 
         # Enable mouse support
         set -g mouse on
@@ -24,7 +24,7 @@
         # --- Everforest Soft Palette Theme ---
         set -g status-style bg='#272E33',fg='#D3C6AA'
 
-        # Left status: Operation banner with escaped commas (pasting #, inside ternary true/false branches)
+        # Left status: Operation banner with safe escaped commas
         set -g status-left-length 40
         set -g status-left '#{?client_prefix,#[bg=#E67E80#,fg=#272E33#,bold],#[bg=#7FBBB3#,fg=#272E33#,bold]} 🌲 SYS #[default]'
 
@@ -54,3 +54,4 @@
     };
   };
 }
+

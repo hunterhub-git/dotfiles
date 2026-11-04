@@ -9,6 +9,7 @@
   #modes
     #developmentMode
     ./user-level_modules/modes/developmentMode/tmux.nix
+    ./user-level_modules/modes/developmentMode/toolchains.nix
   #services
     #media
     ./user-level_modules/services/media/spotify.nix

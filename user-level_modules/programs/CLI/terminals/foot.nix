@@ -1,39 +1,33 @@
 { config, lib, pkgs, ... }: {
-  config = lib.mkIf (config.myUserControlPanel.defaultTerminal == "foot") {
-    programs.foot = {
-      enable = true;
-      settings = {
-        main = {
-          dpi-aware = true;
-          term = "foot";
-        };
+  programs.foot = {
+    enable = true;
+    settings = {
+      # Keep your existing foot settings/parameters here (e.g., font, window padding, etc.)
 
-        mouse = {
-          hide-when-typing = true;
-        };
+      colors = {
+        alpha = "1.0";
+        background = "323d43"; # Everforest Dark Soft background
+        foreground = "d3c6aa"; # Everforest foreground
 
-        colors-dark = {
-          background = "272E33"; # Soft Everforest bg0
-          foreground = "D3C6AA"; # fg
+        # Normal/Regular colors
+        regular0 = "4b565c"; # black
+        regular1 = "e67e80"; # red
+        regular2 = "a7c080"; # green
+        regular3 = "dbbc7f"; # yellow
+        regular4 = "7fbbb3"; # blue
+        regular5 = "d699b6"; # magenta
+        regular6 = "83c092"; # cyan
+        regular7 = "d3c6aa"; # white
 
-          regular0 = "30383C";
-          regular1 = "E67E80";
-          regular2 = "A7C080";
-          regular3 = "DBBC7F";
-          regular4 = "7FBBB3";
-          regular5 = "D699B6";
-          regular6 = "83C092";
-          regular7 = "D3C6AA";
-
-          bright0  = "7A8478";
-          bright1  = "E67E80";
-          bright2  = "A7C080";
-          bright3  = "DBBC7F";
-          bright4  = "7FBBB3";
-          bright5  = "D699B6";
-          bright6  = "83C092";
-          bright7  = "FDF6E3";
-        };
+        # Bright colors
+        bright0 = "4b565c"; # bright black
+        bright1 = "e67e80"; # bright red
+        bright2 = "a7c080"; # bright green
+        bright3 = "dbbc7f"; # bright yellow
+        bright4 = "7fbbb3"; # bright blue
+        bright5 = "d699b6"; # bright magenta
+        bright6 = "83c092"; # bright cyan
+        bright7 = "d3c6aa"; # bright white
       };
     };
   };
