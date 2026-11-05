@@ -27,16 +27,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
   
-  # Enable remote desktop connection
-  services.xserver.enable = true;
-  services.gnome.gnome-remote-desktop.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-    };
-    systemd.services.gnome-remote-desktop = {
-    wantedBy = [ "graphical.target"];
-    };
 # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -55,9 +45,21 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # Enable the XFCE Desktop Environment.
+    services.xserver.desktopManager.xfce = {
+    enable = true;
+    enableXfwm = true;
+    enableScreensaver = true;
+    };
+  # Enable xserver
+    services.xserver = {
+    enable = true;
+    };
+
+  # Enable lightdm
+    services.xserver.displayManager.lightdm = {
+    enable = true;
+    };
 
   # Configure keymap in X11
   services.xserver.xkb = {

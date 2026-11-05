@@ -1,5 +1,13 @@
 { config, lib, pkgs, ... }: {
   options.mySystemControlPanel = {
+    defaultWindowManager = lib.mkOption {
+      type = lib.types.str;
+      description = "Sets the system-space window manager.";
+      };
+    defaultDisplayManager = lib.mkOption {
+      type = lib.types.str;
+      description = "Sets the system-space display manager.";
+      };
     defaultShell = lib.mkOption {
       type = lib.types.str;
       description = "Sets the system-space shell.";
